@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
-import * as actionCreator from './actions'
+import authActions from './actions'
 import routers from './router'
 import {NotFound} from 'pages'
 import {Page} from 'components'
 
 class App extends Component {
   render() {
-    this.props.dispatch(actionCreator.getAuthInfo());
-    console.log(this.props, 'props');
+    this.props.dispatch(authActions.getAuthInfo());
     return (
         <Router>
           <Switch>

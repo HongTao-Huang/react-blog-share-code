@@ -8,7 +8,8 @@ export function userReducer(state = {}, action) {
     case 'GET_AUTH_INFO_SUCCESS':
       return {
           ...state,
-        isLogin: action.result.isLogin
+        isLogin: action.result.isLogin,
+        user: action.result.user
       };
     case 'GET_AUTH_INFO_FAILURE':
       return {

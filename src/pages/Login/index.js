@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {Input, Button} from 'antd'
-import {Link} from 'react-router-dom'
-import {Page} from "components/";
+import { Link } from 'react-router-dom'
 import "./index.less"
 
 class Login extends Component {

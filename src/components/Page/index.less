@@ -5,8 +5,8 @@
     background-color: @theme-bgc;
     padding: 0 12%;
     height: auto;
-    min-height: 64px;
-    .wrapper{
+    line-height: normal;
+    .no-login{
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -27,6 +27,55 @@
       }
       button{
         margin: 20px 5px 0;
+      }
+    }
+    .login{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: @theme-bgc;
+      color: #fff;
+      padding: 8px 0;
+      h1{
+        font-size: 40px;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        flex: 1;
+      }
+      .edit{
+        cursor: pointer;
+        font-size: 30px;
+      }
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        margin-left: 15px;
+      }
+      .user{
+        position: relative;
+        ul{
+          z-index: 999;
+          display: none;
+          background-color: #fff;
+          position: absolute;
+          right: 0;
+          border: 1px solid #eaeaea;
+          span,a{
+            color: #333;
+            font-size: 12px;
+            display: block;
+            padding: 5px 10px;
+            cursor: pointer;
+            &:hover{
+              background-color: #eaeaea;
+            }
+          }
+        }
+        &:hover ul{
+          display: block;
+        }
       }
     }
   }
