@@ -1,24 +1,24 @@
 import React from 'react'
 import {Layout, Button} from 'antd';
 import {Link} from "react-router-dom";
-import { Icon } from 'antd'
+import {Icon} from 'antd'
 import './index.less'
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import authActions from 'actions/'
 
 const {
   Header, Footer, Content,
 } = Layout;
 
-const Page = ({children, isLogin, user, dispatch}) => {
+const Page = ({children, isLogin, user, dispatch, history}) => {
   const handleEdit = () => {
-
+    history.push('/create');
   };
   const handleCancel = () => {
     dispatch(authActions.logout());
   };
   const NoLogin = () => <div className="no-login">
-    <h1><Link to="/"> let's share </Link> </h1>
+    <h1><Link to="/"> let's share </Link></h1>
     <p>精品博客汇聚</p>
     <div className="btns">
       <Link to="/login">
@@ -33,7 +33,7 @@ const Page = ({children, isLogin, user, dispatch}) => {
     <h1><Link to="/">let's share</Link></h1>
     <Icon type="edit" className="edit" onClick={handleEdit}/>
     <div className="user">
-      <img src={user.avatar} alt={user.username} title={user.username} className="avatar" onClick={this.handleEdit}/>
+      <img src={user.avatar} alt={user.username} title={user.username} className="avatar"/>
       <ul>
         <li><Link to="/my">我的</Link></li>
         <li><span onClick={handleCancel}>注销</span></li>
@@ -44,7 +44,7 @@ const Page = ({children, isLogin, user, dispatch}) => {
       <Layout className="app">
         <Header className="header">
           {
-            isLogin ? <Login /> : <NoLogin />
+            isLogin ? <Login/> : <NoLogin/>
           }
         </Header>
         <Content className="main">

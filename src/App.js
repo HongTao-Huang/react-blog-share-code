@@ -20,7 +20,7 @@ class App extends Component {
             {
               routers.map((item, index) => {
                 return <Route key={index} path={item.path} exact render={props => (
-                    <Page>
+                    <Page {...props}>
                       {
                         !item.auth
                             ? (<item.component {...props} />)
