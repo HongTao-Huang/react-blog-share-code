@@ -33,7 +33,7 @@ const Page = ({children, isLogin, user, dispatch}) => {
     <h1><Link to="/">let's share</Link></h1>
     <Icon type="edit" className="edit" onClick={handleEdit}/>
     <div className="user">
-      <img src={user.avatar} alt={user.username} title={user.username} className="avatar"/>
+      <img src={user.avatar} alt={user.username} title={user.username} className="avatar" onClick={this.handleEdit}/>
       <ul>
         <li><Link to="/my">我的</Link></li>
         <li><span onClick={handleCancel}>注销</span></li>

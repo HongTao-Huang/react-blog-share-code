@@ -62,7 +62,12 @@ class Index extends Component {
               );
             })
           }
-          <Pagination className="pagination" hideOnSinglePage showQuickJumper total={total} onChange={this.onChange} current={page}/>
+          <Pagination className="pagination"
+                      hideOnSinglePage
+                      showQuickJumper
+                      total={total}
+                      onChange={this.onChange}
+                      current={page}/>
         </div>
     );
   }

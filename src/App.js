@@ -7,8 +7,13 @@ import {NotFound} from 'pages'
 import {Page} from 'components'
 
 class App extends Component {
-  render() {
+
+  componentDidMount() {
     this.props.dispatch(authActions.getAuthInfo());
+  }
+
+  render() {
+    console.log(this.props);
     return (
         <Router>
           <Switch>
@@ -19,7 +24,7 @@ class App extends Component {
                       {
                         !item.auth
                             ? (<item.component {...props} />)
-                            : (this.props.isLogin
+                            : (this.props.isLogin || this.props.isLogin === undefined
                                 ? (<item.component {...props} />)
                                 : (<Redirect to={{
                                   pathname: "/login",
