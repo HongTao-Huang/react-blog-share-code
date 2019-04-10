@@ -18,7 +18,7 @@ const Page = ({children, isLogin, user, dispatch}) => {
     dispatch(authActions.logout());
   };
   const NoLogin = () => <div className="no-login">
-    <h1>let's share</h1>
+    <h1><Link to="/"> let's share </Link> </h1>
     <p>精品博客汇聚</p>
     <div className="btns">
       <Link to="/login">
@@ -47,7 +47,7 @@ const Page = ({children, isLogin, user, dispatch}) => {
             isLogin ? <Login /> : <NoLogin />
           }
         </Header>
-        <Content>
+        <Content className="main">
           {children}
         </Content>
         <Footer className="footer">

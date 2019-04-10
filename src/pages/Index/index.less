@@ -1,0 +1,49 @@
+@import "../../assets/themes.less";
+.index{
+  .index-blog-wrapper{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "img h3"
+    "img p";
+    grid-column-gap: 6em;
+    //grid-row-gap: 10px;
+    font-size: 14px;
+    color: #000;
+    margin-top: 50px;
+    .img-wrapper{
+      grid-area: img;
+      img{
+        width: 60px;
+        height: 60px;
+      }
+      span{
+        display: block;
+        font-size: 12px;
+        line-height: 18px;
+        color: @theme-txt;
+        text-align: left;
+        margin-top: 10px;
+      }
+    }
+    h3{
+      grid-area: h3;
+      font-weight: normal;
+      font-size: 16px;
+      span{
+        font-size: 12px;
+        line-height: 18px;
+        color: @theme-txt;
+        margin-left: 20px;
+      }
+    }
+    p{
+      grid-area: p;
+      line-height: 16px;
+    }
+  }
+
+  .pagination{
+    margin: 20px 0;
+  }
+}

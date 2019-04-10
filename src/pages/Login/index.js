@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import {Input, Button} from 'antd'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import "./index.less"
+import auth from 'api/auth'
 
 class Login extends Component {
   state = {
@@ -22,17 +24,19 @@ class Login extends Component {
   };
 
   handleSubmit = () => {
-    if (this.state.username === '') {
-      this.setState({
-        userErr: true
-      });
+    const { username, password } = this.state;
+    this.setState({
+      userErr: username === '',
+      passwordErr: password === ''
+    });
+    if(username === '' || password === '') {
+      return
     }
 
-    if (this.state.password === '') {
-      this.setState({
-        passwordErr: true
-      });
-    }
+    auth.login({username: username, password: password})
+        .then(() => {
+
+        })
   };
 
   clearMessage = (type) => {
@@ -72,4 +76,11 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    isLogin: state.userReducer.isLogin,
+    user: state.userReducer.user
+  }
+};
+
+export default connect(mapStateToProps)(Login);
