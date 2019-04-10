@@ -1,10 +1,7 @@
-import React from 'react'
-import { Index, Login } from 'pages/'
-
-const Res = () => <div>res</div>;
+import { Index, Login, Register } from 'pages/'
 
 export default [
   { path: "/", name: "App", component: Index },
   { path: "/login", name: "Login", component: Login },
-  { path: "/res", name: "res", component: Res, auth: true}
+  { path: "/register", name: "Register", component: Register}
 ]

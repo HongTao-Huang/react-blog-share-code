@@ -34,10 +34,19 @@ export default {
       });
     })
   },
-
-  login(){
+  login({username , password}) {
     return createObj('INFO',(resolve) => {
-      auth.login().then((res) => {
+      auth.login({username , password}).then((res) => {
+        resolve({
+          isLogin: true,
+          user: res.data
+        });
+      })
+    })
+  },
+  register({username , password}){
+    return createObj('INFO',(resolve) => {
+      auth.register({username , password}).then((res) => {
         resolve({
           isLogin: true,
           user: res.data
