@@ -36,7 +36,7 @@ class Index extends Component {
   onChange = (pageNumber) => {
     const {history} = this.props;
     this.getIndexBlogs({page: pageNumber}).then(() =>{
-      history.push({path: `/${pageNumber}`, search:`?page=${pageNumber}`})
+      history.push({pathname: '/', search:`?page=${pageNumber}`})
     });
   };
 

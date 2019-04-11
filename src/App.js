@@ -46,7 +46,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isLogin: state.userReducer.isLogin
+    isLogin: state.userReducer.isLogin,
+    user: state.userReducer.user
   }
 };
 

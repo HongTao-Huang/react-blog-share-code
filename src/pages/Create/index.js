@@ -4,10 +4,9 @@ import blog from 'api/blog'
 import './index.less'
 
 const Create = ({ history }) => {
-  console.log(history);
   const obj = {
     title: '',
-    desctiption: '',
+    description: '',
     content: '',
     atIndex: false
   };
@@ -18,7 +17,7 @@ const Create = ({ history }) => {
     blog.createBlog(obj)
         .then((res) => {
           message.success(res.msg);
-          history.push({path: `/detail/${res.data.id}`});
+          history.push(`/detail/${res.data.id}`);
         })
   };
   return (
@@ -28,7 +27,7 @@ const Create = ({ history }) => {
         <Input.TextArea rows="1" maxLength="30" style={{resize: 'none'}} onChange={handleInput.bind(null,'title')}/>
         <span className="position-span">限30个字</span>
         <h3>内容简介</h3>
-        <Input.TextArea rows="3" maxLength="200" style={{resize: 'none'}} onChange={handleInput.bind(null,'desctiption')}/>
+        <Input.TextArea rows="3" maxLength="200" style={{resize: 'none'}} onChange={handleInput.bind(null,'description')}/>
         <span className="position-span">限200个字</span>
         <h3>文章内容</h3>
         <Input.TextArea rows="10" maxLength="10000" style={{resize: 'none'}} onChange={handleInput.bind(null,'content')}/>
