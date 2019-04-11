@@ -5,6 +5,21 @@ import authActions from './actions'
 import routers from './router'
 import {NotFound} from 'pages'
 import {Page} from 'components'
+import Loadable from 'react-loadable';
+
+const MyLoadingComponent = ({isLoading, error}) => {
+  // Handle the loading state
+  if (isLoading) {
+    return <div>没有</div>;
+  }
+  // Handle the error state
+  else if (error) {
+    return <div>Sorry, there was a problem loading the page.</div>;
+  }
+  else {
+    return null;
+  }
+};
 
 class App extends Component {
 
@@ -13,22 +28,26 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.props,'1');
     return (
         <Router>
           <Switch>
             {
               routers.map((item, index) => {
+                const LoadableComponent = Loadable({
+                  loader: () => import(`${item.component}/index`),
+                  loading: MyLoadingComponent
+                });
                 return <Route key={index} path={item.path} exact render={props => (
                     <Page {...props}>
                       {
                         !item.auth
-                            ? (<item.component {...props} />)
+                            ? (<LoadableComponent {...props} />)
                             : (this.props.isLogin || this.props.isLogin === undefined
-                                ? (<item.component {...props} />)
-                                : (<Redirect to={{
-                                  pathname: "/login",
-                                  state: {from: props.location}
+                                ? (<LoadableComponent {...props} />)
+                                : this.props.isLogin === undefined
+                                    ? null
+                                    : (<Redirect to={{ pathname: "/login", state: {from: props.location}
                                 }}/>)
                             )
                       }

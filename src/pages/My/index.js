@@ -2,19 +2,21 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import utils from 'utils/'
-import {Pagination} from "antd";
+import {Pagination, Modal, message} from "antd";
 import queryString from "query-string";
 import blog from 'api/blog'
 import './index.less'
 
+const confirm = Modal.confirm;
+
 class My extends Component {
   constructor(props) {
     super(props);
+    console.log(props, '2');
     this.state = {
       blogs: [],
       page: 1,
       total: 0,
-      userId: '',
       month: ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二']
     }
   }
@@ -27,7 +29,7 @@ class My extends Component {
 
   getBlogsByUserId = (page) => {
     const {user} = this.props;
-    return blog.getBlogsByUserId(user ? user.id : '', {page})
+    blog.getBlogsByUserId(user ? user.id : '', {page})
         .then(res => {
           this.setState({
             blogs: res.data,
@@ -41,6 +43,29 @@ class My extends Component {
     const {history} = this.props;
     this.getBlogsByUserId({page: pageNumber}).then(() => {
       history.push({pathname: '/', search: `?page=${pageNumber}`})
+    });
+  };
+
+  handleDelete = (blogId) => {
+    const that = this;
+    confirm({
+      title: '提示',
+      content: '此操作将永久删除该文件, 是否继续?',
+      onOk() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            blog.deleteBlog({blogId}).then(() => {
+              message.success('删除成功!');
+              let blogs = [];
+              blogs = that.state.blogs.filter((blog) => blog.id !== blogId);
+              that.setState({blogs,});
+              resolve();
+            });
+          }, 1000);
+        }).catch(() => console.log('Oops errors!'));
+      },
+      onCancel() {
+      },
     });
   };
 
@@ -58,7 +83,7 @@ class My extends Component {
           <hr/>
           {
             blogs.map((blog, index) => <div key={`my${index}`}>
-              <Link className="indexBlog-wrapper" to={`detail${blog.id}`}>
+              <Link className="indexBlog-wrapper" to={`/detail/${blog.id}`}>
                 <div className="day">
                   <span className="day">{blog.createdAt.substr(8, 2)}</span>
                 </div>
@@ -71,7 +96,7 @@ class My extends Component {
               </Link>
               <div className="actions">
                 <Link to={`/edit/${blog.id}`}>编辑</Link>
-                <a href="#">删除</a>
+                <span onClick={this.handleDelete.bind(this,blog.id)}>删除</span>
               </div>
             </div>)
           }

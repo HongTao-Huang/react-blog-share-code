@@ -1,4 +1,4 @@
-const {override, fixBabelImports, addWebpackAlias, addLessLoader} = require('customize-cra');
+const {override, fixBabelImports, addWebpackAlias, addLessLoader, addBabelPlugins, useBabelRc} = require('customize-cra');
 const path = require('path');
 
 module.exports = override(
@@ -7,9 +7,13 @@ module.exports = override(
       libraryDirectory: 'es',
       style: 'css',
     }),
+    addBabelPlugins(
+        ["syntax-dynamic-import",{"legacy": true}],
+    ),
+    useBabelRc(),
     addLessLoader({
       javascriptEnabled: true,
-      modifyVars: { '@primary-color': '#1DA57A' },
+      modifyVars: {'@primary-color': '#1DA57A'},
       localIdentName: '[local]--[hash:base64:5]' // 自定义 CSS Modules 的 localIdentName
     }),
     addWebpackAlias({

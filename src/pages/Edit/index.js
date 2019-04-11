@@ -47,17 +47,17 @@ class Edit extends Component {
           <h3>文章标题</h3>
           <Input.TextArea rows="1" maxLength="30" style={{resize: 'none'}}
                           onChange={this.handleInput.bind(null, 'title')}
-                          defaultValue={title}/>
+                          value={title}/>
           <span className="position-span">限30个字</span>
           <h3>内容简介</h3>
           <Input.TextArea rows="3" maxLength="200" style={{resize: 'none'}}
                           onChange={this.handleInput.bind(null, 'description')}
-                          defaultValue={description}/>
+                          value={description}/>
           <span className="position-span">限200个字</span>
           <h3>文章内容</h3>
           <Input.TextArea rows="10" maxLength="10000" style={{resize: 'none'}}
                           onChange={this.handleInput.bind(null, 'content')}
-                          defaultValue={content}/>
+                          value={content}/>
           <span className="position-span">限10000个字</span>
           <div className="is-index">
             <label>是否展示到首页</label>
@@ -65,7 +65,7 @@ class Edit extends Component {
                 checkedChildren="是"
                 unCheckedChildren="否"
                 onChange={this.handleInput.bind(null, 'atIndex')}
-                defaultChecked={atIndex}>
+                checked={atIndex}>
             </Switch>
           </div>
           <Button className="button" htmlType="button" onClick={this.handleEdit}>保存</Button>

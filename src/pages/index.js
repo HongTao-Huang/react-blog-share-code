@@ -5,5 +5,7 @@ export { default as My } from './My'
 export { default as Create } from './Create'
 export { default as Detail } from './Detail'
 export { default as Edit } from './Edit'
+export { default as User } from './User'
+
 
 export { default as NotFound } from './NotFound'
