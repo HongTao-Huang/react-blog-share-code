@@ -12,7 +12,6 @@ const confirm = Modal.confirm;
 class My extends Component {
   constructor(props) {
     super(props);
-    console.log(props, '2');
     this.state = {
       blogs: [],
       page: 1,

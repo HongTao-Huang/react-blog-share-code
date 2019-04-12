@@ -31,7 +31,6 @@ class Edit extends Component {
 
   handleEdit = () => {
     const {history, match} = this.props;
-    console.log(this.props);
     blog.updataBlog({blogId: match.params.blogId}, this.state)
         .then((res) => {
           message.success(res.msg);

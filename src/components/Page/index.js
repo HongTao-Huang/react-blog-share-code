@@ -1,10 +1,9 @@
 import React from 'react'
-import {Layout, Button} from 'antd';
+import {Layout, Button, Icon} from 'antd';
 import {Link} from "react-router-dom";
-import {Icon} from 'antd'
-import './index.less'
 import {connect} from "react-redux";
 import authActions from 'actions/'
+import './index.less'
 
 const {
   Header, Footer, Content,

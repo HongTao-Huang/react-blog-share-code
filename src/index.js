@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import promiseMiddleware from './promise-middleware'
 import * as reducers from './reducers'
 import App from './App'
+import './index.css';
 
 let reducer = combineReducers(reducers);
 let finalCreateStore = applyMiddleware(promiseMiddleware)(createStore);
-let store = finalCreateStore(reducer);
+let store = finalCreateStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
     <Provider store={store}>

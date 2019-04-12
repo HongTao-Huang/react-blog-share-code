@@ -17,12 +17,13 @@ const createObj = (type, callback) => {
 
 export default {
   getAuthInfo() {
-    return createObj('INFO',async (resolve) => {
-      let res = await auth.loginfo();
-      resolve({
-        isLogin: res.isLogin,
-        user: res.data
-      })
+    return createObj('INFO',(resolve) => {
+      auth.loginfo().then((res) => {
+        resolve({
+          isLogin: res.isLogin,
+          user: res.data
+        })
+      });
     });
   },
   logout() {

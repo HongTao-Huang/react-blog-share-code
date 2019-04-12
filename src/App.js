@@ -22,13 +22,11 @@ const MyLoadingComponent = ({isLoading, error}) => {
 };
 
 class App extends Component {
-
   componentDidMount() {
     this.props.dispatch(authActions.getAuthInfo());
   }
 
   render() {
-    console.log(this.props,'1');
     return (
         <Router>
           <Switch>
@@ -43,7 +41,7 @@ class App extends Component {
                       {
                         !item.auth
                             ? (<LoadableComponent {...props} />)
-                            : (this.props.isLogin || this.props.isLogin === undefined
+                            : (this.props.isLogin
                                 ? (<LoadableComponent {...props} />)
                                 : this.props.isLogin === undefined
                                     ? null
