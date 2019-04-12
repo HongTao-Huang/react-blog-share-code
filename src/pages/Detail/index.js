@@ -18,7 +18,7 @@ class Detail extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const {match} = this.props;
     marked.setOptions({
       renderer: new marked.Renderer(),

@@ -14,7 +14,7 @@ class Edit extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const {match} = this.props;
     blog.getDetail({blogId: match.params.blogId || 1})
         .then(res => {

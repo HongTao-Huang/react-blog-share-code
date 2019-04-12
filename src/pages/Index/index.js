@@ -16,7 +16,13 @@ class Index extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillUnmount() {
+    this.setState = (state, callback) => {
+      return
+    }
+  }
+
+  componentWillMount() {
     const { location } = this.props;
     let urlQuery = queryString.parse(location.search);
     this.getIndexBlogs({page: parseInt(urlQuery ? urlQuery.page : 1) || 1});

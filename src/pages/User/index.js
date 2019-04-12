@@ -18,7 +18,7 @@ class User extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const {location} = this.props;
     let urlQuery = queryString.parse(location.search);
     this.getBlogsByUserId({page: parseInt(urlQuery ? urlQuery.page : 1) || 1});
