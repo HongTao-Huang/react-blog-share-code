@@ -1,15 +1,15 @@
 {
-  "main.css": "/react-blog-share/static/css/main.a211195e.chunk.css",
-  "main.js": "/react-blog-share/static/js/main.d412a7a8.chunk.js",
-  "main.js.map": "/react-blog-share/static/js/main.d412a7a8.chunk.js.map",
-  "runtime~main.js": "/react-blog-share/static/js/runtime~main.91fd4e0d.js",
-  "runtime~main.js.map": "/react-blog-share/static/js/runtime~main.91fd4e0d.js.map",
-  "static/css/2.70080bc8.chunk.css": "/react-blog-share/static/css/2.70080bc8.chunk.css",
-  "static/js/2.d59f6c4f.chunk.js": "/react-blog-share/static/js/2.d59f6c4f.chunk.js",
-  "static/js/2.d59f6c4f.chunk.js.map": "/react-blog-share/static/js/2.d59f6c4f.chunk.js.map",
-  "index.html": "/react-blog-share/index.html",
-  "precache-manifest.11960b6b0439973929cfc24feeadd740.js": "/react-blog-share/precache-manifest.11960b6b0439973929cfc24feeadd740.js",
-  "service-worker.js": "/react-blog-share/service-worker.js",
-  "static/css/2.70080bc8.chunk.css.map": "/react-blog-share/static/css/2.70080bc8.chunk.css.map",
-  "static/css/main.a211195e.chunk.css.map": "/react-blog-share/static/css/main.a211195e.chunk.css.map"
+  "main.css": "/react-blog-share-code/static/css/main.a211195e.chunk.css",
+  "main.js": "/react-blog-share-code/static/js/main.adc39861.chunk.js",
+  "main.js.map": "/react-blog-share-code/static/js/main.adc39861.chunk.js.map",
+  "runtime~main.js": "/react-blog-share-code/static/js/runtime~main.c38112b0.js",
+  "runtime~main.js.map": "/react-blog-share-code/static/js/runtime~main.c38112b0.js.map",
+  "static/css/2.70080bc8.chunk.css": "/react-blog-share-code/static/css/2.70080bc8.chunk.css",
+  "static/js/2.5a9dcbfd.chunk.js": "/react-blog-share-code/static/js/2.5a9dcbfd.chunk.js",
+  "static/js/2.5a9dcbfd.chunk.js.map": "/react-blog-share-code/static/js/2.5a9dcbfd.chunk.js.map",
+  "index.html": "/react-blog-share-code/index.html",
+  "precache-manifest.f4476e038a2cb17001c2993ad89f3fc2.js": "/react-blog-share-code/precache-manifest.f4476e038a2cb17001c2993ad89f3fc2.js",
+  "service-worker.js": "/react-blog-share-code/service-worker.js",
+  "static/css/2.70080bc8.chunk.css.map": "/react-blog-share-code/static/css/2.70080bc8.chunk.css.map",
+  "static/css/main.a211195e.chunk.css.map": "/react-blog-share-code/static/css/main.a211195e.chunk.css.map"
 }
